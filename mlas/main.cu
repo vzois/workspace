@@ -1,18 +1,20 @@
-#include "common/CudaHelper.h"
-#include "common/ArgParser.h"
+#include "../../common/CudaHelper.h"
+#include "../../common/ArgParser.h"
 #include "mlas_core/mlas_matop.h"
 #include "mlas_core/mlas_config.h"
+
+int multiplier = 1;
 
 void mm_test(){
 	cutil::setActiveDevice(0);
 	float *dA,*dB, *dC;
-	unsigned int m = 1024;
-	unsigned int n = 1024;
-	unsigned int k = 1024;
+	uint64_t m = 1024 * multiplier;
+	uint64_t n = 1024 * multiplier;
+	uint64_t k = 1024 * multiplier;
 
-	cutil::allocDevMem<float,unsigned int>(&dA,sizeof(float) * m*n, "Error allocating device memory for dA");
-	cutil::allocDevMem<float,unsigned int>(&dB,sizeof(float) * n*k, "Error allocating device memory for dB");
-	cutil::allocDevMem<float,unsigned int>(&dC,sizeof(float) * m*k, "Error allocating device memory for dC");
+	cutil::allocDevMem<float,uint64_t>(&dA,sizeof(float) * m*n, "Error allocating device memory for dA");
+	cutil::allocDevMem<float,uint64_t>(&dB,sizeof(float) * n*k, "Error allocating device memory for dB");
+	cutil::allocDevMem<float,uint64_t>(&dC,sizeof(float) * m*k, "Error allocating device memory for dC");
 
 	cutil::cudaRandInit<float,unsigned int>(dA,m*n);
 	cutil::cudaRandInit<float,unsigned int>(dB,n*k);
@@ -20,14 +22,18 @@ void mm_test(){
 	dim3 mgrid((m-1)/TILE + 1, (k-1)/4 + 1, 1);
 	dim3 mblock(TILE,4,1);
 
+	cutil::print_grid(mgrid,mblock);
 
 	Time<millis> t;
 	t.start();
 	mlas::sgemm<float,unsigned int,TILE><<<mgrid,mblock>>>(dA,dB,dC,m,n,k);
 	cutil::handleDeviceErrors(cudaDeviceSynchronize(),"Error executing sgemm");
 	double tt= t.lap();
-	double flops = 2*m*n*k;
-	double gflops = ((flops)/(tt/1000))/1000000000;
+	double GBs = ((double)( m * n * 3 * 4 )) / (1000 * 1000 * 1000);
+	uint64_t flop = 2 * n * m * k;
+	double gflops = ((flop)/(tt/1000))/1000000000;
+	std::cout << "GBs: " << GBs << std::endl;
+	std::cout << "FLOP:" << flop << std::endl;
 	std::cout << "GFLOPS:" << gflops << std::endl;
 
 
@@ -45,6 +51,10 @@ int main(int argc,char **argv){
 		return 0;
 	}
 
+	if(ap.exists("-c")){
+		printf("Multiplier:%d\n",ap.getInt("-c"));
+		multiplier = ap.getInt("-c");
+	}
 	//va_test();
 	mm_test();
 
