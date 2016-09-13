@@ -1,13 +1,13 @@
 #first make
 
 CC = g++
-NVCC = /usr/local/cuda-7.5/bin/nvcc
+NVCC = /usr/local/cuda-8.0/bin/nvcc
 EXEC = mlas
 
 #LIBRARIES#
 LIB_FLAGS = -lcuda -lcudart
 INCLUDE_PATHS = /usr/local/cuda/include
-INCUDE_LIB = /usr/local/cuda-7.5/lib64
+INCUDE_LIB = /usr/local/cuda-8.0/lib64
 
 #COMPILATION FILES#
 CPP_FILES = *.cpp
