@@ -14,7 +14,7 @@ CPP_FILES = *.cpp
 CU_FILES = *.cu
 
 NVCC_FLAGS = --ptxas-options=-v -gencode arch=compute_35,code=sm_35
-ARCH= -gencode arch=compute_52,code=sm_52
+ARCH= -gencode arch=compute_61,code=sm_61
 
 all: cc
 

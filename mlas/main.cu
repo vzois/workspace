@@ -1,5 +1,5 @@
-#include "../../common/CudaHelper.h"
-#include "../../common/ArgParser.h"
+#include "../common/CudaHelper.h"
+#include "../common/ArgParser.h"
 #include "mlas_core/mlas_matop.h"
 #include "mlas_core/mlas_config.h"
 
