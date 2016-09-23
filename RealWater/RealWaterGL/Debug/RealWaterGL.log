@@ -1,0 +1,58 @@
+﻿Build started 5/5/2015 00:03:01 AM.
+     1>Project "c:\Incoming\Projects\visual studio\OpenGL\RealWaterGL\RealWaterGL.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp HeightMap.cpp main.cpp noiseutils.cpp Render.cpp Texture.cpp WShader.cpp
+         WShader.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\types.h(14): warning C4005: 'ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(114) : see previous definition of 'ERROR'
+         Texture.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\types.h(14): warning C4005: 'ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(114) : see previous definition of 'ERROR'
+         Render.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\types.h(14): warning C4005: 'ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(114) : see previous definition of 'ERROR'
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.h(28): warning C4091: 'typedef ' : ignored on left of 'RendProp' when no variable is declared
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.cpp(223): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.cpp(244): warning C4244: 'argument' : conversion from 'GLfloat' to 'int', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.cpp(244): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.cpp(261): warning C4244: 'argument' : conversion from 'float' to 'DWORD', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.cpp(473): warning C4553: '==' : operator has no effect; did you intend '='?
+         noiseutils.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.cpp(62): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.cpp(867): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+         main.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\types.h(14): warning C4005: 'ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(114) : see previous definition of 'ERROR'
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\render.h(28): warning C4091: 'typedef ' : ignored on left of 'RendProp' when no variable is declared
+         HeightMap.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\types.h(14): warning C4005: 'ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(114) : see previous definition of 'ERROR'
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\noiseutils.h(1217): warning C4244: 'initializing' : conversion from 'const double' to 'float', possible loss of data
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\heightmap.cpp(126): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 c:\incoming\projects\visual studio\opengl\realwatergl\heightmap.cpp(112) : definition of 'i' ignored
+                 c:\incoming\projects\visual studio\opengl\realwatergl\heightmap.cpp(90) : definition of 'i' used
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\heightmap.cpp(139): warning C4244: '=' : conversion from 'float' to 'BYTE', possible loss of data
+         Camera.cpp
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\types.h(14): warning C4005: 'ERROR' : macro redefinition
+                 c:\program files (x86)\windows kits\8.1\include\um\wingdi.h(114) : see previous definition of 'ERROR'
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\camera.cpp(97): warning C4244: 'initializing' : conversion from 'GLdouble' to 'float', possible loss of data
+         Generating Code...
+     1>c:\incoming\projects\visual studio\opengl\realwatergl\heightmap.cpp(187): warning C4715: 'HeightMap::vertexBuffer' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Incoming\Projects\visual studio\OpenGL\Debug\RealWaterGL.exe" /INCREMENTAL /NOLOGO /LIBPATH:lib\libnoise\bin /LIBPATH:"lib\OpenGL\freeglut-2.8.1\lib\x86\Debug" /LIBPATH:"lib\OpenGL\glew-1.12.0\lib\Release\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib libnoise.lib glew32.lib opengl32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Incoming\Projects\visual studio\OpenGL\Debug\RealWaterGL.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Incoming\Projects\visual studio\OpenGL\Debug\RealWaterGL.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\HeightMap.obj
+         Debug\main.obj
+         Debug\noiseutils.obj
+         Debug\Render.obj
+         Debug\Texture.obj
+         Debug\WShader.obj
+         RealWaterGL.vcxproj -> C:\Incoming\Projects\visual studio\OpenGL\Debug\RealWaterGL.exe
+     1>Done Building Project "c:\Incoming\Projects\visual studio\OpenGL\RealWaterGL\RealWaterGL.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:05.21
