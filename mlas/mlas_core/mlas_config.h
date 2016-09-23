@@ -1,7 +1,7 @@
 #ifndef MLAS_CONFIG_H
 #define MLAS_CONFIG_H
 
-#define TILE 32
+#define TILE 16
 
 
 #endif

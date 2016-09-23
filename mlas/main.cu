@@ -20,10 +20,12 @@ void mm_test(){
 	cutil::cudaRandInit<float,unsigned int>(dA,m*n);
 	cutil::cudaRandInit<float,unsigned int>(dB,n*k);
 
-	dim3 mgrid((m-1)/TILE + 1, (k-1)/4 + 1, 1);
-	dim3 mblock(TILE,4,1);
+	//dim3 mgrid((m-1)/TILE + 1, (k-1)/4 + 1, 1);
+	dim3 mgrid((m-1)/TILE + 1, (k-1)/TILE + 1, 1);
+	//dim3 mgrid(1, 1, 1);
+	dim3 mblock(TILE,TILE,1);
 
-	//cutil::print_grid(mgrid,mblock);
+	cutil::print_grid(mgrid,mblock);
 
 	Time<millis> t;
 	t.start();

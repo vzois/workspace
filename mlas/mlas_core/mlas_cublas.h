@@ -19,16 +19,19 @@ namespace mlas{
 		cutil::setActiveDevice(0);
 		uint64_t m,n,k;
 
-		m = multiplier * 1024; n = multiplier * 1024; k = multiplier * 1024;
+		m = multiplier * 1024; n = multiplier * 768; k = multiplier * 1024;
 
+		std::cout << "(" << m << ") x (" << n << ") X ";
+		std::cout << "(" << n << ") x (" << k << ") = ";
+		std::cout << "(" << m << ") x (" << k << ")"<<std::endl;
 
 		float *dA,*dB,*dC;
 		cutil::safeMalloc<float,uint64_t>(&dA,sizeof(float)*m*n,"dA memory alloc");
 		cutil::safeMalloc<float,uint64_t>(&dB,sizeof(float)*n*k,"dB memory alloc");
 		cutil::safeMalloc<float,uint64_t>(&dC,sizeof(float)*m*k,"dC memory alloc");
 
-		//cutil::cudaRandInit<float,uint64_t>(dA,m*n);
-		//cutil::cudaRandInit<float,uint64_t>(dB,n*k);
+		cutil::cudaRandInit<float,uint64_t>(dA,m*n);
+		cutil::cudaRandInit<float,uint64_t>(dB,n*k);
 
 		cublasHandle_t handle;
 		const float alpha = 1.0f;

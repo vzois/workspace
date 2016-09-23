@@ -23,8 +23,9 @@ cc:
 	$(NVCC) -std=c++11 $(CUBLAS_LIB) $(ARCH) *.cu -o $(EXEC)
 		
 ptx:
-	$(NVCC) -std=c++11 $(ARCH) -ptx *.cu
+	$(NVCC) -std=c++11 $(CUBLAS_LIB) $(ARCH) -ptx *.cu
 	
 clean:
 	rm -rf *.o
 	rm -rf $(EXEC)
+	rm -rf *.ptx
