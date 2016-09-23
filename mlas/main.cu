@@ -1,5 +1,6 @@
-#include "../common/CudaHelper.h"
-#include "../common/ArgParser.h"
+#include "../common/cuda/CudaHelper.h"
+#include "../common/tools/ArgParser.h"
+#include "../common/time/Time.h"
 #include "mlas_core/mlas_matop.h"
 #include "mlas_core/mlas_config.h"
 #include "mlas_core/mlas_cublas.h"

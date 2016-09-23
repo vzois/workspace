@@ -1,26 +1,33 @@
 #first make
 
+
 CC = g++
-NVCC = /usr/local/cuda-7.5/bin/nvcc
+NVCC = /usr/local/cuda-8.0/bin/nvcc
+CU_ARCH= -gencode arch=compute_61,code=sm_61
 EXEC = common
 
-LIB_FLAGS = -lcuda -lcudart
-INCLUDE_PATHS = /usr/local/cuda/include
-INCUDE_LIB = /usr/local/cuda-7.5/lib64
 
-NVCC_FLAGS = --ptxas-options=-v -gencode arch=compute_35,code=sm_35 -rdc=true
-ARCH = -gencode arch=compute_35,code=sm_35
+CU_EXEC = cudaf
+TIME_EXEC = timef
+TOOLS_EXEC = toolsf
 
-all: cc
+all: cudaf timef toolsf
 
-cc: 
-	$(NVCC) -std=c++11 $(ARCH) *.cu -o $(EXEC)
+cudaf:
+	$(NVCC) -std=c++11 -c cuda/*.cu
+	$(NVCC) -std=c++11 -gencode arch=compute_35,code=sm_35 cuhelper.o -o $(CU_EXEC)
 	
-compile:
-	#$(CC) -std=c++11 -c *.cpp -L $(INCLUDE_LIB) $(LIB_FLAGS) -I$(INCLUDE_PATHS)
-	$(NVCC) -std=c++11 $(NVCC_FLAGS) -c *.cu
-	$(NVCC) -std=c++11 -gencode arch=compute_35,code=sm_35 *.o -o $(EXEC)
+timef:
+	$(CC) -std=c++11 time/*.cpp -o $(TIME_EXEC)
+
+toolsf:
+	$(CC) -std=c++11 tools/*.cpp -o $(TOOLS_EXEC)
+	
 	
 clean:
+	rm -rf $(TIME_EXEC)
+	rm -rf $(TOOLS_EXEC)
+	rm -rf $(CU_EXEC)
 	rm -rf *.o
-	rm -rf $(EXEC)
+
+

@@ -10,8 +10,8 @@
 #include <cuda_runtime.h>
 #include <device_launch_parameters.h>
 
-#include "../../common/Time.h"
-#include "../../common/CudaHelper.h"
+#include "../../common/time/Time.h"
+#include "../../common/cuda/CudaHelper.h"
 
 namespace mlas{
 
